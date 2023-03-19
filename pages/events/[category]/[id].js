@@ -1,17 +1,11 @@
 import React from "react";
-import Image from "next/image";
+import MainEvent from "@/src/components/events/MainEvent";
 
-const Event = ({ event }) => {
-  return (
-    <div>
-      <Image src={event.image} width={1000} height={500} alt={event.title} />
-      <h1>{event.id}</h1>
-      <p>{event.description}</p>
-    </div>
-  );
+const EventDetails = ({ event }) => {
+  return <MainEvent data={event} />;
 };
 
-export default Event;
+export default EventDetails;
 
 export async function getStaticPaths() {
   const data = await import("/data/data.json");

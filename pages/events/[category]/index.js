@@ -1,33 +1,8 @@
 import React from "react";
-import Image from "next/image";
-import Link from "next/link";
+import EventCategory from "@/src/components/events/EventCategory";
 
 const CategoryPage = ({ data, pageName }) => {
-  return (
-    <div>
-      <h1>Events in {pageName}</h1>
-      <div>
-        {data.map((event) => {
-          return (
-            <Link
-              key={event.id}
-              href={`/events/${event.city}/${event.id}`}
-              passHref={true}
-            >
-              <Image
-                src={event.image}
-                height={200}
-                width={200}
-                alt={event.title}
-              />
-              <h3>{event.title}</h3>
-              <p>{event.description}</p>
-            </Link>
-          );
-        })}
-      </div>
-    </div>
-  );
+  return <EventCategory data={data} pageName={pageName} />;
 };
 
 export default CategoryPage;

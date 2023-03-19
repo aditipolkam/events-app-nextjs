@@ -1,20 +1,33 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import styles from "@/styles/Home.module.css";
 
 const HomePage = ({ data }) => {
   return (
-    <main className={styles.main}>
+    <div className="home_body">
       <h1>Events</h1>
       {data.map((event) => (
-        <Link key={event.id} href={`/events/${event.id}`} passHref={true}>
-          <Image width={200} height={200} alt={event.title} src={event.image} />
-          <h2>{event.title}</h2>
-          <p>{event.description}</p>
+        <Link
+          className="card"
+          key={event.id}
+          href={`/events/${event.id}`}
+          passHref={true}
+        >
+          <div className="image">
+            <Image
+              width={400}
+              height={300}
+              alt={event.title}
+              src={event.image}
+            />
+          </div>
+          <div className="content">
+            <h2>{event.title}</h2>
+            <p>{event.description}</p>
+          </div>
         </Link>
       ))}
-    </main>
+    </div>
   );
 };
 

@@ -4,18 +4,31 @@ import Link from "next/link";
 const Header = () => {
   return (
     <header>
-      <nav>
-        <Image></Image>
-        <Link href="/" passHref>
-          Home
-        </Link>
-        <Link href="/events" passHref>
-          Events
-        </Link>
-        <Link href="/about" passHref>
-          About
-        </Link>
-      </nav>
+      <div>
+        <div className="topNav">
+          <Image src={"/qrate.png"} width={50} height={50} />
+
+          <nav>
+            <ul>
+              <li>
+                <Link href="/" passHref>
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/events" passHref>
+                  Events
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" passHref>
+                  About
+                </Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
     </header>
   );
 };
