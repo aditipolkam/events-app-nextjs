@@ -1,10 +1,9 @@
 import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
-import Link from "next/link";
-
-const inter = Inter({ subsets: ["latin"] });
+import HomePage from "@/src/components/home/HomePage";
+import Footer from "@/src/components/footer/Footer";
+import Header from "@/src/components/header/Header";
+import MainLayout from "@/src/components/layout/MainLayout";
 
 export default function Home({ data }) {
   return (
@@ -15,38 +14,8 @@ export default function Home({ data }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header className={styles.header}>
-        <nav>
-          <Image></Image>
-          <Link href="/" passHref>
-            Home
-          </Link>
-          <Link href="/events" passHref>
-            Events
-          </Link>
-          <Link href="/about" passHref>
-            About
-          </Link>
-        </nav>
-      </header>
-      <main className={styles.main}>
-        <h1>Events</h1>
-        {data.map((event) => (
-          <Link key={event.id} href={`/events/${event.id}`} passHref={true}>
-            <Image
-              width={200}
-              height={200}
-              alt={event.title}
-              src={event.image}
-            />
-            <h2>{event.title}</h2>
-            <p>{event.description}</p>
-          </Link>
-        ))}
-      </main>
-      <footer className={styles.footer}>
-        <p>© 2023 - Aditi Polkam</p>
-      </footer>
+
+      <HomePage data={data} />
     </div>
   );
 }
