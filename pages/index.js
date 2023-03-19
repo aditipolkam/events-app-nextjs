@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,15 +18,21 @@ export default function Home({ data }) {
       <header className={styles.header}>
         <nav>
           <Image></Image>
-          <a href="/">Home</a>
-          <a href="/events">Events</a>
-          <a href="/about">About</a>
+          <Link href="/" passHref>
+            Home
+          </Link>
+          <Link href="/events" passHref>
+            Events
+          </Link>
+          <Link href="/about" passHref>
+            About
+          </Link>
         </nav>
       </header>
       <main className={styles.main}>
         <h1>Events</h1>
         {data.map((event) => (
-          <a key={event.id} href="">
+          <Link key={event.id} href={`/events/${event.id}`} passHref={true}>
             <Image
               width={200}
               height={200}
@@ -34,7 +41,7 @@ export default function Home({ data }) {
             />
             <h2>{event.title}</h2>
             <p>{event.description}</p>
-          </a>
+          </Link>
         ))}
       </main>
       <footer className={styles.footer}>
@@ -46,7 +53,7 @@ export default function Home({ data }) {
 
 export async function getServerSideProps(context) {
   const { events_categories } = await import("/data/data.json");
-  console.log(events_categories);
+  // console.log(events_categories);
   return {
     props: {
       data: events_categories,
