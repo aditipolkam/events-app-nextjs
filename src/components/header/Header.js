@@ -6,7 +6,7 @@ const Header = () => {
     <header>
       <div>
         <div className="topNav">
-          <Image src={"/qrate.png"} width={50} height={50} />
+          <Image src={"/qrate.png"} width={50} height={50} alt={"logo"} />
 
           <nav>
             <ul>
