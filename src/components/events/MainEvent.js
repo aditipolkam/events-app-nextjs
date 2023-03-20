@@ -36,6 +36,7 @@ const MainEvent = ({ data }) => {
 
       setMessage(data.message);
       console.log(data);
+      inputEmail.current.value = "";
     } catch (error) {
       console.error(error);
     }
