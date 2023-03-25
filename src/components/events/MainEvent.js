@@ -46,7 +46,11 @@ const MainEvent = ({ data }) => {
       <h1> {data.title} </h1>
       <Image src={data.image} width={1000} height={500} alt={data.title} />
       <p> {data.description} </p>
-      <form onSubmit={handleSubmit} className="email_registration">
+      <form
+        onSubmit={handleSubmit}
+        className="email_registration"
+        method="POST"
+      >
         <label>Get registered for this event!</label>
         <input type="email" id="email" ref={inputEmail} placeholder="Email" />
         <button type="submit"> Register </button>
